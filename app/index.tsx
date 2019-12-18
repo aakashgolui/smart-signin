@@ -6,6 +6,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { Ionicons } from '@expo/vector-icons';
 import Svg,{ Image, Circle, ClipPath , Rect } from "react-native-svg";
 import LottieView from "lottie-react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 const {width, height} = Dimensions.get('window');
 
 const {
@@ -28,7 +29,7 @@ const {
 
   /**
    * 
-   * @param clock 
+   * @param clock
    * @param value 
    * @param dest 
    * @author Akash Golui
@@ -83,7 +84,6 @@ export default class index extends Component{
     rotateCross: Animated.Node<number>;
     constructor(props){
         super(props);
-
         this.buttonOpacity = new Value(1);
 
         this.onStateChange = event([
@@ -158,7 +158,7 @@ export default class index extends Component{
     
     render(){
         return <KeyboardAwareScrollView bounces={false} style={{top: StatusBar.currentHeight, flex:1}}>
-            <StatusBar translucent={true} backgroundColor='red' />
+            <StatusBar translucent={true} barStyle='light-content' />
         <View style={{height:height, backgroundColor:'#fff', justifyContent:'flex-end'}}>
             <Animated.View style={{...StyleSheet.absoluteFill, transform:[{translateY: this.bgY}]}}>
                 
@@ -195,11 +195,11 @@ export default class index extends Component{
             <View style={{height: height/ 2.5, justifyContent:'center'}}>
                 <TapGestureHandler onHandlerStateChange={this.onStateChange}>
                     <Animated.View style={{...styles.button, opacity: this.buttonOpacity, transform:[{translateY: this.buttonY}]}}>
-                        <Text style={{fontSize:15, fontWeight:'bold'}}>SIGN IN</Text>
+                        <Text style={{fontSize:RFValue(15), fontWeight:'bold'}}>SIGN IN</Text>
                     </Animated.View>
                 </TapGestureHandler>
                 <Animated.View style={{...styles.button, backgroundColor:'#2E71DC', opacity: this.buttonOpacity, transform:[{translateY: this.buttonY}] }}>
-                    <Text style={{fontSize:15, fontWeight:'bold', color:'#fff'}}>SIGN IN WITH FACEBOOK</Text>
+                    <Text style={{fontSize:RFValue(15), fontWeight:'bold', color:'#fff'}}>SIGN IN WITH FACEBOOK</Text>
                 </Animated.View>
                 <Animated.View 
                     style={{
@@ -231,7 +231,7 @@ export default class index extends Component{
                         placeholderTextColor='#000'
                     />
                     <View style={{...styles.button }}>
-                        <Text style={{fontSize:15, fontWeight:'bold', color:'#000'}}>SIGN IN</Text>
+                        <Text style={{fontSize:RFValue(15), fontWeight:'bold', color:'#000'}}>SIGN IN</Text>
                     </View>
                 </Animated.View>
             </View>
@@ -244,11 +244,11 @@ const styles = StyleSheet.create({
     button:{
         backgroundColor:'#fff',
         height: height / 12,
-        marginHorizontal: 20,
+        marginHorizontal: width* 0.1,
         borderRadius: (height / 12) / 2,
         justifyContent:'center',
         alignItems:'center',
-        marginVertical:5,
+        marginVertical: height* 0.01,
         shadowColor: '#000',
         shadowOffset: {width:2, height:2},
         shadowRadius: 5,
@@ -257,11 +257,11 @@ const styles = StyleSheet.create({
     },
     textInput:{
         height: height / 14,
-        marginHorizontal: 20,
+        marginHorizontal: width* 0.1,
         borderRadius: (height / 14) / 2,
         borderWidth:0.5,
-        paddingLeft:10,
-        marginVertical:5,
+        paddingHorizontal:height* 0.02,
+        marginVertical:height* 0.01,
         borderColor: 'rgba(0,0,0,0.2)'
     },
     closeButton:{
