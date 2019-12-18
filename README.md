@@ -5,7 +5,7 @@ reactJs project
 <br />
 <p align="center">
 
-<img src="https://github.com/aakashgolui/smart-signin/blob/master/assets/record.gif" width="280" height="500" title="record image">
+<img src="https://github.com/aakashgolui/smart-signin/blob/master/assets/record.gif" width="250" height="500" title="record image">
 </p>
 <br />
 
